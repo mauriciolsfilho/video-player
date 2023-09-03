@@ -1,6 +1,6 @@
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { ChevronDown } from "lucide-react";
-import { Lesson } from "./lesson";
+import { Lesson } from "./Lesson";
 import { useAppSelector } from "../../../store";
 import { useDispatch } from "react-redux";
 import { play } from "../../../store/slices/player";
@@ -16,12 +16,16 @@ export function Module(props: ModuleProps) {
     (state) => state.player.course.modules[props.index].lessons
   );
 
+  const isActiveModule = useAppSelector(
+    (state) => state.player.currentModuleIndex === props.index
+  );
+
   function handlePlayLesson(lessonIndex: number) {
     dispatch(play({ moduleIndex: props.index, lessonIndex }));
   }
 
   return (
-    <Collapsible.Root className="group">
+    <Collapsible.Root defaultOpen={isActiveModule} className="group">
       <Collapsible.Trigger className="flex w-full items-center gap-3 rounded bg-zinc-800 p-4">
         <div className="flex h-10 w-10 rounded-full items-center justify-center bg-zinc-950 text-xs">
           {props.index + 1}
