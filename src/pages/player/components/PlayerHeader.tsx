@@ -12,7 +12,7 @@ export function PlayerHeader({ moduleTitle, lessonTitle }: PlayerHeaderProps) {
         <h1 className="text-2xl font-bold">{lessonTitle}</h1>
         <span className="text-sm text-zinc-400">{moduleTitle}</span>
       </div>
-      <button className="flex items-center gap-2 rounded bg-green-800 px-3 py-2 text-sm font-medium text-white hover:bg-green-600">
+      <button className="flex items-center gap-2 rounded bg-blue-900 px-3 py-2 text-sm font-medium text-white hover:bg-blue-800">
         <MessageCircle className="w-4 h-4" />
         Feedback
       </button>
